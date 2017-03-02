@@ -9,9 +9,9 @@ Activity.belongsTo(Place);
 Hotel.belongsTo(Place);
 Restaurant.belongsTo(Place);
 
-const seedData = require('./seed');
+// const seedData = require('./seed');
 
-console.log(seedData);
+// console.log(seedData);
 
 const seed = () => {
 

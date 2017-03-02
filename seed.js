@@ -1,15 +1,13 @@
-// This file should contain all the record creation needed to seed the database with its default values.
-// The data can then be loaded with the node seed.js
-
 var Promise = require('bluebird');
-const sql = require('./index');
+var sql = require('./models');
 var db = sql.sequelize;
-var Place = sql.models.Place;
-var Hotel = sql.models.Hotel;
-var Restaurant = sql.models.Restaurant;
-var Activity = sql.models.Activity;
 
-const data = {
+var Place = db.models.place;
+var Hotel = db.models.hotel;
+var Restaurant = db.models.restaurant;
+var Activity = db.models.activity;
+
+var data = {
   hotels: [
     {name: "Andaz Wall Street", place: {address: "75 Wall St", city: "New York", state: "NY", phone: "123-456-7890", location: [40.705137, -74.007624]}, num_stars: 4, amenities: "Pool, Free Wi-Fi" },
     {name: "Hotel Mulberry", place: {address: "52 Mulberry St", city: "New York", state: "NY", phone: "123-456-7890", location: [40.715317, -73.999542]}, num_stars: 4.5, amenities: "Free Wi-Fi" },

@@ -1,16 +1,15 @@
 const express = require('express');
-const db = require('./db');
-const swig = require('swig{');
+const db = require('./db/seed');
+const swig = require('swig');
 
 const app = express();
 
-swig.config({cache: false});
+swig.setDefaults({cache: false});
 app.set('view engine', 'html');
 app.engine('html', swig.renderFile);
 
 
 app.use('/', require('./controllers'));
-
 
 
 const port = process.env.PORT || 3000;

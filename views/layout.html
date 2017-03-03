@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+	<script src="/jquery/jquery.min.js"></script>
 	<meta charset="UTF-8">
 	<title>Trip Planner</title>
 </head>
@@ -9,7 +10,61 @@
 	{% block content %}
 	{% endblock%}
 </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSkIgeYn2AnZfc5jUR1j3vmiehy7Tb_wY&sensor=true">
+	
+</script>
+
 <script>
+function initialize_gmaps() {
+    // initialize new google maps LatLng object
+    var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+    // set the map options hash
+    var mapOptions = {
+        center: myLatlng,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    // get the maps div's HTML obj
+    var map_canvas_obj = document.getElementById("map");
+    // initialize a new Google Map with the options
+    var map = new google.maps.Map(map_canvas_obj, mapOptions);
+    // Add the marker to the map
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        title:"Hello World!"
+    });
+
+    var locations = {{data | json | raw}}
+    // Add the marker to the map by calling setMap()
+    locations.templateHotels.forEach(function(hotel) {
+    	console.log(hotel.place.location.map(function(loc) {
+    		return loc * 1;
+    	}));
+
+    	addMarker(hotel.place.location.map(function(loc) {
+    		return loc * 1;
+    	}), map);
+    })
+}
+
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(location[0], location[1]),
+    
+    map: map
+  });
+
+}
+
+
+$(document).ready(function() {
+    initialize_gmaps();
+});
+
+console.log({{data.templateRestaurants[0].place.location | json | raw}});
+
 
 </script>
 </html>

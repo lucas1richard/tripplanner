@@ -2,17 +2,75 @@
 {% extends "layout.html"%}
 
 {% block content %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-map-marker"></span> Trip Planner</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+	<div id="map" class="col-xs-9"">
 
-<div class="container">
-	
-	<div class="map">
-		<div class="sub">
-			<div class="hotel">
-			<div class="restaurnat">
-			<div class="activity">
-		
-		</div>
-	
+  </div>
+  <div class="col-xs-3">
+        <div class="hotel">
+          <label for="hotels">Hotels:</label>
+          <select id="hotels" class="form-control">
+            {% for hotel in data.templateHotels %}
+              <option>{{hotel.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="restaurant">
+        <label for="restaurants">Restaurants:</label>
+          <select id="restaurants" class="form-control">
+            {% for restaurant in data.templateRestaurants %}
+              <option>{{restaurant.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="activity">
+        <label for="actvities">Activities:</label>
+          <select id="actvities" class="form-control">
+            {% for activity in data.templateActivities %}
+              <option>{{activity.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+  		<div class="day">
+        <h3 id="daynum">Day 2</h3>
+        <div>
+          <ul class="pagination">
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>My Hotel</h4>
+          <ul>
+            <li>[xxxxxxxxxxxxxxxx]</li>
+          </ul>
+          <h4>My Restaurants</h4>
+          <ul>
+            <li>[yyyyyyyyyyyyyyyy]</li>
+          </ul>
+          <h4>My Activities</h4>
+          <ul>
+            <li>[zzzzzzzzzzzzzzzzz]</li>
+          </ul>
+        </div>
+      </div>
+
+
+  </div>
+
 	<div class="day">
 {{data | json}}
 </div>

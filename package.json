@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "DATABASE=tripplanner nodemon server"
+    "start:production": "node theServerFilename",
+        "start:dev": "nodemon -e html,css,js server",
+        "start": "npm run start:dev"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +16,10 @@
     "bluebird": "^3.4.7",
     "bootstrap": "^3.3.7",
     "express": "^4.14.1",
+    "jquery": "^3.1.1",
     "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
     "pg": "^6.1.2",
     "sequelize": "^3.30.2",
     "swig": "^1.4.2"

@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{{title}}</title>
-</head>
-<body>
 
+{% extends "layout.html"%}
+
+{% block content %}
+
+<div class="container">
+	
+	<div class="map">
+		<div class="sub">
+			<div class="hotel">
+			<div class="restaurnat">
+			<div class="activity">
+		
+		</div>
+	
+	<div class="day">
 {{data | json}}
+</div>
 
-</body>
-</html>
+{% endblock%}
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('./db/seed');
+const db = require('./models');
 const swig = require('swig');
 
 const app = express();

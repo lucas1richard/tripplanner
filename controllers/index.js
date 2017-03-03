@@ -1,10 +1,10 @@
-const route = require('express').Router;
-const data = require('../db');
+const router = require('express').Router();
+const db = require('../models');
 
-route.get('/', (req,res,next)=>{
-  res.render('index', {data});
+router.get('/', (req,res,next)=>{
+  res.render('index');
 });
 
-
+module.exports =  router;
 
 
